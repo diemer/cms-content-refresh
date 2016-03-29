@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/css/material.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<script type="text/javascript" src="/js/material.min.js"></script>
+	<script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/popup.js"></script>
+</head>
+<body>
+
+	<div id="mainPopup">
+		<div class="mdl-card__title">
+
+			<h1 class="mdl-card__title-text">CMS Content Refresh</h1>
+		</div>
+		<div class="mdl-card__actions mdl-card--border">
+
+
+			<p>
+				<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enabled-toggle">
+				  <input type="checkbox" id="enabled-toggle" class="mdl-switch__input">
+				  <span class="mdl-switch__label">Enabled?</span>
+				</label>
+			</p>
+			<p class="relative">
+				<label for="smart" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+					<input type="checkbox" name="smart" id="smart" value="true" class="mdl-switch__input" />
+					<span class="mdl-switch__label">Try to smartly detect the page to refresh?</span>
+				</label>
+				<span id="tt1" class="icon material-icons">info</span>
+				<span class="mdl-tooltip mdl-tooltip--left mdl-tooltip--large" for="tt1">
+					Use this to have the content's identifier (url title or slug) added automatically to the URL. This will help focus which page to refresh.
+				</span>
+			</p>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		    <input class="mdl-textfield__input" type="text" name="overrideUrl" id="overrideUrl">
+		    <label class="mdl-textfield__label" for="overrideUrl">Override Default URL...</label>
+		  </div>
+			<span id="tt2" class="icon material-icons">info</span>
+			<span class="mdl-tooltip mdl-tooltip--left mdl-tooltip--large" for="tt2">
+				By default the base url of your CMS control panel will be used. Use this if your control panel lives on a different domain as the front end.
+			</span>
+		</div>
+		<span id="placeholder"></span>
+	</div>
+</body>
+</html>
