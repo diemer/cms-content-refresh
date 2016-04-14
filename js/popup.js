@@ -39,4 +39,12 @@ $(document).ready(function(){
   $('#overrideUrl').on('input',function(){
     localStorage.contentOverrideUrl = $(this).val();
   });
+  $('#refreshDelay').on('input',function(){
+    if(Number($(this).val()) === $(this).val() && $(this).val() % 1 === 0)
+    {
+      localStorage.contentRefreshDelay = $(this).val() * 1000;
+    } else {
+      localStorage.contentRefreshDelay = 2000;
+    }
+  });
 });

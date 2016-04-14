@@ -19,6 +19,7 @@ chrome.runtime.onMessage.addListener(
       var was_refreshed = false;
       var refresh_url = request.refresh_url;
       var url_title = request.url_title;
+      var refresh_delay = localStorage.contentRefreshDelay !== undefined ? localStorage.contentRefreshDelay : 2000;
       if(localStorage.contentSmartEnabled === 'true') {
         refresh_url = refresh_url + '*'+url_title+'*';
       }
@@ -29,9 +30,11 @@ chrome.runtime.onMessage.addListener(
         tabs.forEach(function(tab){
           // Make sure we don't refresh the tab we're editing
           if(sender.tab.id !== tab.id) {
-            chrome.tabs.reload(tab.id,function(){
-              was_refreshed = true;
-            });
+            setTimeout(function(){
+              chrome.tabs.reload(tab.id,function(){
+                was_refreshed = true;
+              });
+            },refresh_delay);
           }
         });
 
